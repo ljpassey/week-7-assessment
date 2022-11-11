@@ -1,0 +1,23 @@
+Results for the extraLargeArray(100000)
+insert 702.074875 ms
+append 2.843125 ms
+
+Results for the largeArray(10000)
+insert 5.999375 ms
+append 355.833 μs
+
+Results for the mediumArray(1000)
+insert 113 μs
+append 78 μs
+
+Results for the smallArray(100)
+insert 23.208 μs
+append 59.625 μs
+
+Results for the tinyArray(10)
+insert 15.334 μs
+append 69.791 μs
+
+--------------------THOUGHTS-------------------
+
+The default time complexity of .push() is O(1), or a constant time complexity, and the default time complexity of .unshift() is linear, or O(n). However, in this situation, both of these are nested within a for loop, adding to their time complexity, with the .unshift() having a much worse runtime complexity when scaled up to handle the larger arrays. We can expect this because of its runtime complexity being worse than the constant runtime complexity of the .push() method. Becauase of this, we can easily see drastically differing runtimes when the extraLargeArrays are run. From my research, this is becuase the .unshift() method has to rearrange all of the inputs each time, drastically increasing the runtime when compared to the .push() method which just has to append each input once and does not have to shift every other input around.
